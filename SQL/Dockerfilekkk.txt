@@ -1,0 +1,17 @@
+FROM mcr.microsoft.com/mssql/server:2019-latest
+
+# Define as variáveis de ambiente
+ENV ACCEPT_EULA=Y
+ENV MSSQL_SA_PASSWORD=SuaSenhaAqui
+
+# Diretório de trabalho dentro do contêiner
+WORKDIR /app
+
+# Copia o script SQL para dentro do contêiner
+COPY QueryDb.sql .
+
+# Expose the default SQL Server port
+EXPOSE 1433
+
+# Comando padrão para iniciar o SQL Server quando o contêiner for executado
+CMD ["/opt/mssql/bin/sqlservr"]
