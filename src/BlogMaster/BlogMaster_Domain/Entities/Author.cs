@@ -27,7 +27,6 @@ namespace BlogMaster_Domain.Entities {
         }
 
         public void ValidateProperties(int id, string name, string email, string password, string cpf, DateTime dateOfBirth) {
-            //DomainExceptionValidation.When(id <= 0, "Informe um id válido");
             DomainExceptionValidation.When(string.IsNullOrEmpty(name) || name.Length > 100, "Informe um nome válido");
             DomainExceptionValidation.When(string.IsNullOrEmpty(email) || email.Length > 150 || !email.Contains("@"), "Informe um email válido");
             DomainExceptionValidation.When(string.IsNullOrEmpty(password) || password.Length > 30, "Informe uma senha de até 30 caracteres");

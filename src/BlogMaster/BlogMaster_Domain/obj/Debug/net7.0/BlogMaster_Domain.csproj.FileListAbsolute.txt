@@ -22,3 +22,15 @@ D:\Projetos\BlogMasterAPI\src\BlogMaster\BlogMaster_Domain\obj\Debug\net7.0\Blog
 D:\Projetos\BlogMasterAPI\src\BlogMaster\BlogMaster_Domain\obj\Debug\net7.0\refint\BlogMaster_Domain.dll
 D:\Projetos\BlogMasterAPI\src\BlogMaster\BlogMaster_Domain\obj\Debug\net7.0\BlogMaster_Domain.pdb
 D:\Projetos\BlogMasterAPI\src\BlogMaster\BlogMaster_Domain\obj\Debug\net7.0\ref\BlogMaster_Domain.dll
+C:\Projetos\BlogMasterAPI\src\BlogMaster\BlogMaster_Domain\bin\Debug\net7.0\BlogMaster_Domain.deps.json
+C:\Projetos\BlogMasterAPI\src\BlogMaster\BlogMaster_Domain\bin\Debug\net7.0\BlogMaster_Domain.dll
+C:\Projetos\BlogMasterAPI\src\BlogMaster\BlogMaster_Domain\bin\Debug\net7.0\BlogMaster_Domain.pdb
+C:\Projetos\BlogMasterAPI\src\BlogMaster\BlogMaster_Domain\obj\Debug\net7.0\BlogMaster_Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\BlogMasterAPI\src\BlogMaster\BlogMaster_Domain\obj\Debug\net7.0\BlogMaster_Domain.AssemblyInfoInputs.cache
+C:\Projetos\BlogMasterAPI\src\BlogMaster\BlogMaster_Domain\obj\Debug\net7.0\BlogMaster_Domain.AssemblyInfo.cs
+C:\Projetos\BlogMasterAPI\src\BlogMaster\BlogMaster_Domain\obj\Debug\net7.0\BlogMaster_Domain.csproj.CoreCompileInputs.cache
+C:\Projetos\BlogMasterAPI\src\BlogMaster\BlogMaster_Domain\obj\Debug\net7.0\BlogMaster_Domain.sourcelink.json
+C:\Projetos\BlogMasterAPI\src\BlogMaster\BlogMaster_Domain\obj\Debug\net7.0\BlogMaster_Domain.dll
+C:\Projetos\BlogMasterAPI\src\BlogMaster\BlogMaster_Domain\obj\Debug\net7.0\refint\BlogMaster_Domain.dll
+C:\Projetos\BlogMasterAPI\src\BlogMaster\BlogMaster_Domain\obj\Debug\net7.0\BlogMaster_Domain.pdb
+C:\Projetos\BlogMasterAPI\src\BlogMaster\BlogMaster_Domain\obj\Debug\net7.0\ref\BlogMaster_Domain.dll

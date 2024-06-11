@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "NEjHYmlgiaGBTEQKbE3eAqJpwq7E5Dw5R+S//uDBNHcKaZEVGDWrpYPAEnT5LHrxvkb6nZrRwqdQ4fnLWswygg==",
+  "dgSpecHash": "VK0kkyC1BUQufe+7X5JxaXUmzvw2HdnZp/CPsnLmekhpIfsqkwBJHFvdAh1hJLR6EHsCpE6WoijKTMJgRp85NQ==",
   "success": true,
-  "projectFilePath": "D:\\Projetos\\BlogMasterAPI\\src\\BlogMaster\\BlogMaster_Domain\\BlogMaster_Domain.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Projetos\\BlogMasterAPI\\src\\BlogMaster\\BlogMaster_Domain\\BlogMaster_Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\lenovo\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.18\\microsoft.windowsdesktop.app.ref.7.0.18.nupkg.sha512",
+    "C:\\Users\\lenovo\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.18\\microsoft.netcore.app.ref.7.0.18.nupkg.sha512",
+    "C:\\Users\\lenovo\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.18\\microsoft.aspnetcore.app.ref.7.0.18.nupkg.sha512"
+  ],
   "logs": []
 }
