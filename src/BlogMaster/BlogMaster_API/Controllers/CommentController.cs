@@ -1,12 +1,14 @@
 ﻿using BlogMaster_Application.DTOs.CommentDTO;
 using BlogMaster_Application.Services.Interfaces;
 using BlogMaster_Domain.ValueObjects;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
 namespace BlogMaster_API.Controllers {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CommentController : ControllerBase {
         private readonly ICommentService _commentService;
 

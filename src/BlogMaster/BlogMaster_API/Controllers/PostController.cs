@@ -1,12 +1,14 @@
 ﻿using BlogMaster_Application.DTOs.PostDTO;
 using BlogMaster_Application.Services.Interfaces;
 using BlogMaster_Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
 namespace BlogMaster_API.Controllers {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class PostController : ControllerBase {
         private readonly IPostService _postService;
         public PostController(IPostService postService)
@@ -84,5 +86,22 @@ namespace BlogMaster_API.Controllers {
                 throw;
             }
         }
+
+        [HttpGet("author/pagination")]
+        public async Task<ActionResult<IEnumerable<Post>>> GetPostListByAuthorId(
+            [FromQuery][Required(ErrorMessage = "O QueryParam authorId é obrigatório.")] int authorId,
+            [FromQuery][Required(ErrorMessage = "O QueryParam page é obrigatório.")] int page,
+            [FromQuery][Required(ErrorMessage = "O QueryParam quantityItems é obrigatório.")] int quantityItems)
+        {
+            try
+            {
+                var postListByAuhtorId = await _postService.GetPostListByAuthorId(authorId, page, quantityItems);
+                return Ok(postListByAuhtorId);
+            }
+            catch
+            {
+                throw;
+            }
+        }   
     }
 }

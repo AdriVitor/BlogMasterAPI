@@ -1,12 +1,13 @@
 ﻿using BlogMaster_Application.DTOs.AuthorDTO;
 using BlogMaster_Application.Services.Interfaces;
 using BlogMaster_Domain.Entities;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogMaster_API.Controllers {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class AuthorController : ControllerBase {
         private readonly IAuthorService _authorService;
         public AuthorController(IAuthorService authorService)
