@@ -1,15 +1,14 @@
 ﻿using BlogMaster_Application.DTOs.KeywordDTO;
-using BlogMaster_Application.DTOs.PostDTO;
-using BlogMaster_Application.Services;
 using BlogMaster_Application.Services.Interfaces;
-using BlogMaster_Domain.Entities;
 using BlogMaster_Domain.ValueObjects;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
 namespace BlogMaster_API.Controllers {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class KeywordController : ControllerBase {
         private readonly IKeywordService _keywordService;
 
@@ -36,17 +35,6 @@ namespace BlogMaster_API.Controllers {
             [FromBody] List<string> newKeywords) {
             try {
                 await _keywordService.Add(postId, newKeywords);
-                return Ok();
-            }
-            catch {
-                throw;
-            }
-        }
-
-        [HttpPatch]
-        public async Task<ActionResult> Patch([FromBody] KeywordDTO keywordDTO) {
-            try {
-                await _keywordService.Update(keywordDTO);
                 return Ok();
             }
             catch {
