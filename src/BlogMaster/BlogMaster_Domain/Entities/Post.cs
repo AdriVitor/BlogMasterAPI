@@ -8,8 +8,6 @@ namespace BlogMaster_Domain.Entities {
         public string Description { get; private set; }
         public DateTime PostDate { get; private set; }
         public int AuthorId { get; private set; }
-        //public List<Comment> Comments { get; set; }
-        //public List<Keyword> Keywords { get; set; }
 
         public Post(int id, string title, string description, DateTime postDate, int authorId)
         {
@@ -23,7 +21,6 @@ namespace BlogMaster_Domain.Entities {
         }
 
         public void ValidateProperties(int id, string title, string description, DateTime postDate, int authorId) {
-            DomainExceptionValidation.When(id <= 0, "Informe um id válido");
             DomainExceptionValidation.When(string.IsNullOrEmpty(title) || title.Length > 120, "Informe um título com até 120 caracateres");
             DomainExceptionValidation.When(string.IsNullOrEmpty(description) || description.Length > 250, "Tamanho de post inválido");
             DomainExceptionValidation.When(postDate == DateTime.MinValue || postDate == DateTime.MaxValue, "Informe uma data de postagem válida");

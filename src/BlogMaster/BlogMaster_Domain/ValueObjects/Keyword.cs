@@ -1,10 +1,8 @@
-﻿using BlogMaster_Domain.Entities;
-using BlogMaster_Domain.Validations;
+﻿using BlogMaster_Domain.Validations;
 
 namespace BlogMaster_Domain.ValueObjects {
     public class Keyword {
         public int PostId { get; private set; }
-        //public Post Post { get; private set; }
         public string Word { get; private set; }
 
         public Keyword(int postId, string word)
