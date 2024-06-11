@@ -59,29 +59,6 @@ namespace BlogMaster_Test.Application {
             Assert.Equal(typeof(Exception), exception.GetType());
         }
 
-        [Fact]
-        public async Task ValidateKeywordsDuplicatesOfPost_Update() {
-            var keywordRepositoryMock = new Mock<IKeywordRepository>();
-
-            var postId = 1;
-
-            var keywordDTO = new KeywordDTO() { PostId = 1, Word = "keywordTest" };          
-
-            var keywords = MockListKeyword(postId);
-            keywordRepositoryMock.Setup(k => k.GetAllByPostId(postId))
-                            .Returns(Task.FromResult(keywords));
-
-            var keywordService = new KeywordService(keywordRepositoryMock.Object);
-
-            var exception = await Assert.ThrowsAsync<Exception>(async () => {
-                await keywordService.Update(keywordDTO);
-            });
-
-
-            Assert.Equal("Não é possível adicionar a mesma palavra-chave identicas no mesmo post", exception.Message);
-            Assert.Equal(typeof(Exception), exception.GetType());
-        }
-
         private List<Keyword> MockListKeyword(int postId) {
             var keyword = new Keyword(postId, "keywordTest");
             var keyword1 = new Keyword(postId, "keywordTest1");

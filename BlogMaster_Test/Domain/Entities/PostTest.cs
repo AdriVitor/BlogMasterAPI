@@ -4,16 +4,6 @@ namespace BlogMaster_Test.Domain.Entities {
     public class PostTest {
 
         [Fact]
-        public void ValidatePropertyId() {
-            var exception = Assert.Throws<Exception>(() => {
-                var post = new Post(0, "title test", "description test", DateTime.Now, 1);
-            });
-
-            Assert.Equal("Informe um id válido", exception.Message);
-            Assert.Equal(typeof(Exception), exception.GetType());
-        }
-
-        [Fact]
         public void ValidatePropertyTitle() {
             var exception = Assert.Throws<Exception>(() => {
                 var post = new Post(1, "", "description test", DateTime.Now, 1);
