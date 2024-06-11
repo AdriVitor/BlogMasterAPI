@@ -44,7 +44,7 @@ namespace BlogMaster_Infraestructure.Repositories {
         public async Task<bool> ValidateLoginAuthor(string email, string password) {
             var login = await _context
                             .Authors
-                            .FirstOrDefaultAsync(a=>a.Email.ToLower() == email.ToLower() && a.Password == password);
+                            .FirstOrDefaultAsync(a=> a.Email.ToLower() == email.ToLower() && a.Password == password);
 
             if(login is null) {
                 return false;

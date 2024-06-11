@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projetos\\BlogMasterAPI\\src\\BlogMaster\\BlogMaster_Infraestructure\\BlogMaster_Infraestructure.csproj": {}
+    "C:\\Projetos\\BlogMasterAPI\\src\\BlogMaster\\BlogMaster_Infraestructure\\BlogMaster_Infraestructure.csproj": {}
   },
   "projects": {
-    "D:\\Projetos\\BlogMasterAPI\\src\\BlogMaster\\BlogMaster_Domain\\BlogMaster_Domain.csproj": {
+    "C:\\Projetos\\BlogMasterAPI\\src\\BlogMaster\\BlogMaster_Domain\\BlogMaster_Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projetos\\BlogMasterAPI\\src\\BlogMaster\\BlogMaster_Domain\\BlogMaster_Domain.csproj",
+        "projectUniqueName": "C:\\Projetos\\BlogMasterAPI\\src\\BlogMaster\\BlogMaster_Domain\\BlogMaster_Domain.csproj",
         "projectName": "BlogMaster_Domain",
-        "projectPath": "D:\\Projetos\\BlogMasterAPI\\src\\BlogMaster\\BlogMaster_Domain\\BlogMaster_Domain.csproj",
-        "packagesPath": "C:\\Users\\adriano.araujo\\.nuget\\packages\\",
-        "outputPath": "D:\\Projetos\\BlogMasterAPI\\src\\BlogMaster\\BlogMaster_Domain\\obj\\",
+        "projectPath": "C:\\Projetos\\BlogMasterAPI\\src\\BlogMaster\\BlogMaster_Domain\\BlogMaster_Domain.csproj",
+        "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
+        "outputPath": "C:\\Projetos\\BlogMasterAPI\\src\\BlogMaster\\BlogMaster_Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\adriano.araujo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,9 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.pkg.github.com/WAYDS/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
@@ -40,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -56,30 +55,40 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.18, 7.0.18]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.18, 7.0.18]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.18, 7.0.18]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Projetos\\BlogMasterAPI\\src\\BlogMaster\\BlogMaster_Infraestructure\\BlogMaster_Infraestructure.csproj": {
+    "C:\\Projetos\\BlogMasterAPI\\src\\BlogMaster\\BlogMaster_Infraestructure\\BlogMaster_Infraestructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projetos\\BlogMasterAPI\\src\\BlogMaster\\BlogMaster_Infraestructure\\BlogMaster_Infraestructure.csproj",
+        "projectUniqueName": "C:\\Projetos\\BlogMasterAPI\\src\\BlogMaster\\BlogMaster_Infraestructure\\BlogMaster_Infraestructure.csproj",
         "projectName": "BlogMaster_Infraestructure",
-        "projectPath": "D:\\Projetos\\BlogMasterAPI\\src\\BlogMaster\\BlogMaster_Infraestructure\\BlogMaster_Infraestructure.csproj",
-        "packagesPath": "C:\\Users\\adriano.araujo\\.nuget\\packages\\",
-        "outputPath": "D:\\Projetos\\BlogMasterAPI\\src\\BlogMaster\\BlogMaster_Infraestructure\\obj\\",
+        "projectPath": "C:\\Projetos\\BlogMasterAPI\\src\\BlogMaster\\BlogMaster_Infraestructure\\BlogMaster_Infraestructure.csproj",
+        "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
+        "outputPath": "C:\\Projetos\\BlogMasterAPI\\src\\BlogMaster\\BlogMaster_Infraestructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\adriano.araujo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -87,16 +96,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.pkg.github.com/WAYDS/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\Projetos\\BlogMasterAPI\\src\\BlogMaster\\BlogMaster_Domain\\BlogMaster_Domain.csproj": {
-                "projectPath": "D:\\Projetos\\BlogMasterAPI\\src\\BlogMaster\\BlogMaster_Domain\\BlogMaster_Domain.csproj"
+              "C:\\Projetos\\BlogMasterAPI\\src\\BlogMaster\\BlogMaster_Domain\\BlogMaster_Domain.csproj": {
+                "projectPath": "C:\\Projetos\\BlogMasterAPI\\src\\BlogMaster\\BlogMaster_Domain\\BlogMaster_Domain.csproj"
               }
             }
           }
@@ -105,6 +112,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -118,6 +130,14 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[7.0.17, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.7.33, )"
             }
           },
           "imports": [
@@ -131,12 +151,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.18, 7.0.18]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.18, 7.0.18]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.18, 7.0.18]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     }
