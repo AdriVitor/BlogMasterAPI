@@ -9,5 +9,6 @@ namespace BlogMaster_Application.Services.Interfaces {
         Task Delete(int id);
         Task Update(PostDTO postDTO);
         Task<List<Post>> GetPostsAdvancedSearchPagination(int page, int quantityItems, string parameter);
+        Task<List<Post>> GetPostListByAuthorId(int authorId, int page, int quantityItems);
     }
 }

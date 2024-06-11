@@ -1,19 +1,21 @@
-﻿using BlogMaster_Infraestructure.Repositories.Interfaces;
+﻿using BlogMaster_Application.Services.Interfaces;
+using BlogMaster_Infraestructure.Repositories.Interfaces;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
-using System.Reflection.Metadata;
 using System.Security.Claims;
 using System.Text;
 
 namespace BlogMaster_Application.Services {
-    public class AuthenticateService {
-        private const string Secret = "A8B5U3Q6Z7T4D9F5G1A6S8F1S2";
+    public class AuthenticateService : IAuthenticateService {
+        private const string Secret = "A8B5U3Q6Z7T4D9F5G1A6S8F1S21FS5F1SD5F1S51FS231SFDF4SDF12SD";
         private readonly IAuthorRepository _authorRepository;
 
         public AuthenticateService(IAuthorRepository authorRepository)
         {
             _authorRepository = authorRepository;
         }
+
+        #region Public Methods
 
         public async Task<string> AuthenticateAuthor(string email, string password) {
             var validateLogin = await _authorRepository.ValidateLoginAuthor(email, password);
@@ -31,6 +33,9 @@ namespace BlogMaster_Application.Services {
             return token;
         }
 
+        #endregion
+
+        #region Private Methods
         private string GenerateToken(string email) {
             
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -67,5 +72,7 @@ namespace BlogMaster_Application.Services {
                 return false;
             }
         }
+
+        #endregion
     }
 }

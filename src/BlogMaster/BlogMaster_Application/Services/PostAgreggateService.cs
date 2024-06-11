@@ -13,6 +13,7 @@ namespace BlogMaster_Application.Services {
             _keywordService = keywordService;
         }
 
+        #region Public Methods
         public async Task<PostAgreggate> GetByPostId(int id) {
             var post = await _postService.GetById(id);
             var commentList = await _commentService.GetByPostId(id);
@@ -22,5 +23,7 @@ namespace BlogMaster_Application.Services {
 
             return postAgreggate;
         }
+
+        #endregion
     }
 }

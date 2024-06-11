@@ -1,4 +1,5 @@
 ﻿using BlogMaster_Application.DTOs.PostDTO;
+using BlogMaster_Application.Extensions;
 using BlogMaster_Application.Services.Interfaces;
 using BlogMaster_Domain.Entities;
 using BlogMaster_Infraestructure.Repositories.Interfaces;
@@ -6,13 +7,14 @@ using BlogMaster_Infraestructure.Repositories.Interfaces;
 namespace BlogMaster_Application.Services {
     public class PostService : IPostService {
         private readonly IPostRepository _postRepository;
-        private readonly IAuthorRepository _authorRepository;
-        private readonly IKeywordRepository _keywordRepository;
-        public PostService(IPostRepository postRepository, IAuthorRepository authorRepository, IKeywordRepository keywordRepository)
+        private readonly ICacheRepository _cacheRepository;
+        private string prefixCacheKey = "postsAuthorId:";
+
+        #region Public Methods
+        public PostService(IPostRepository postRepository, ICacheRepository cacheRepository)
         {
             _postRepository = postRepository;
-            _authorRepository = authorRepository;
-            _keywordRepository = keywordRepository;
+            _cacheRepository = cacheRepository;
         }
 
         public async Task Add(PostDTO postDTO) {
@@ -52,6 +54,65 @@ namespace BlogMaster_Application.Services {
             var post = postDTO.ConvertToPost();
 
             await _postRepository.Update(post);
+            UpdatePostDTOCache(postDTO);
         }
+
+        public async Task<List<Post>> GetPostListByAuthorId(int authorId, int page, int quantityItems)
+        {
+            List<Post> posts = new();
+
+            string cacheKey = GenerateCacheKey(authorId.ToString());
+            var postListCache = _cacheRepository.GetList<PostDTO>(cacheKey);
+            if (!postListCache.Any())
+            {
+                posts = await FetchAndCacheAuthorPosts(posts, authorId, cacheKey);
+
+                return posts;
+            }
+
+            posts = postListCache.ConvertAll(p => p.ConvertToPost());
+            posts = posts.ImplementPagination<Post>(page, quantityItems);
+
+            return posts;
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        private void UpdatePostDTOCache(PostDTO postDTO)
+        {
+            var cacheKey = GenerateCacheKey(postDTO.AuthorId.ToString());
+            var postListCache = _cacheRepository.GetList<PostDTO>(cacheKey);
+            var postFilter = postListCache.SingleOrDefault(p => p.Id == postDTO.Id);
+            if (postFilter is not null)
+            {
+                _cacheRepository.Set(cacheKey, postFilter);
+            }
+        }
+
+        private string GenerateCacheKey(string keyAuthorId)
+        {
+            keyAuthorId = keyAuthorId.ToString();
+            string cacheKey = prefixCacheKey + keyAuthorId;
+
+            return cacheKey;
+        }
+
+        private async Task<List<Post>> FetchAndCacheAuthorPosts(List<Post> posts, int authorId, string cacheKey)
+        {
+            posts = await _postRepository.GetPostListByAuthorId(authorId);
+
+            if (!posts.Any())
+            {
+                throw new Exception("Não existe post vinculado a esse autor");
+            }
+
+            _cacheRepository.SetList(cacheKey, posts);
+
+            return posts;
+        }
+
+        #endregion
     }
 }
