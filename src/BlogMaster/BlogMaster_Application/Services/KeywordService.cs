@@ -10,6 +10,7 @@ namespace BlogMaster_Application.Services {
             _keywordRepository = keywordRepository;
         }
 
+        #region Public Methods
         public async Task Add(int postId, List<string> newKeywords) {
             var keywordListActually = await _keywordRepository.GetAllByPostId(postId);
 
@@ -27,7 +28,11 @@ namespace BlogMaster_Application.Services {
         }
 
         public async Task Delete(KeywordDTO keywordDTO) {
-            var keyword = keywordDTO.ConvertToKeyword();
+            var keyword = await _keywordRepository.Get(keywordDTO.ConvertToKeyword());
+            if(keyword is null)
+            {
+                throw new Exception("Não foi possível deletar a palavra-chave");
+            }
 
             await _keywordRepository.Delete(keyword);
         }
@@ -38,19 +43,15 @@ namespace BlogMaster_Application.Services {
             return keywordList;
         }
 
-        public async Task Update(KeywordDTO keywordDTO) {
-            var keyword = keywordDTO.ConvertToKeyword();
-            var keywordListActually = await _keywordRepository.GetAllByPostId(keywordDTO.PostId);
+        #endregion
 
-            ValidateKeywordsDuplicates(keywordListActually, keyword);
-
-            await _keywordRepository.Update(keyword);
-        }
-
+        #region Private Methods
         private void ValidateKeywordsDuplicates(List<Keyword> keywordListActually, Keyword keyword) {
             if (keywordListActually.Exists(k=>k.Word == keyword.Word)) {
                 throw new Exception("Não é possível adicionar a mesma palavra-chave identicas no mesmo post");
             }
         }
+
+        #endregion
     }
 }

@@ -11,6 +11,7 @@ namespace BlogMaster_Application.Services {
             _commentRepository = commentRepository;
         }
 
+        #region Public Methods
         public async Task Add(CommentDTO commentDTO) {
             var comment = commentDTO.ConvertoToComment();
 
@@ -28,5 +29,7 @@ namespace BlogMaster_Application.Services {
 
             return commentList;
         }
+
+        #endregion
     }
 }
