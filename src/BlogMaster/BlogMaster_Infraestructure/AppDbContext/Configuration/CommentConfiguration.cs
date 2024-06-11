@@ -24,10 +24,6 @@ namespace BlogMaster_Infraestructure.AppDbContext.Configuration {
             builder.Property(c => c.DateOfPosting)
                 .HasColumnName("DATEOFPOSTING")
                 .IsRequired();
-
-            /*builder.HasOne(c => c.Post)
-                .WithMany(p => p.Comments)
-                .HasForeignKey(c => c.PostId);*/
         }
     }
 }

@@ -8,5 +8,6 @@ namespace BlogMaster_Infraestructure.Repositories.Interfaces {
         Task Add(Post post);
         Task Delete(Post post);
         Task Update(Post post);
+        Task<List<Post>> GetPostListByAuthorId(int authorId);
     }
 }

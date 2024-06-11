@@ -13,10 +13,6 @@ namespace BlogMaster_Infraestructure.AppDbContext.Configuration {
                 .HasColumnName("POSTID")
                 .IsRequired();
 
-            /*builder.HasOne(k => k.Post)
-                .WithMany(p => p.Keywords)
-                .HasForeignKey(k => k.PostId);*/
-
             builder.Property(k => k.Word)
                 .HasColumnName("WORD")
                 .HasMaxLength(40)
