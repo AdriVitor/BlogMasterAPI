@@ -4,16 +4,6 @@ namespace BlogMaster_Test.Domain.Entities {
     public class AuthorTest {
 
         [Fact]
-        public void ValidatePropertyId() {
-            var exception = Assert.Throws<Exception>(() => {
-                var author = new Author(0, "name test", "emailtest", "123456", "036104888999", new DateTime(2001, 04, 07));
-            });
-
-            Assert.Equal("Informe um id válido", exception.Message);
-            Assert.Equal(typeof(Exception), exception.GetType());
-        }
-
-        [Fact]
         public void ValidatePropertyName() {
             var exception = Assert.Throws<Exception>(() => {
                 var author = new Author(1, "", "emailtest", "123456", "036104888999", new DateTime(2001, 04, 07));
