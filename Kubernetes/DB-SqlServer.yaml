@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: db-sqlserver-statefulset
+spec:
+  serviceName: db-sqlserver-nodeport
+  replicas: 1
+  selector:
+    matchLabels:
+      db: sqlserver
+  template:
+    metadata:
+      labels:
+        db: sqlserver
+    spec:
+      containers:
+        - name: db-sqlserver-container
+          image: mcr.microsoft.com/mssql/server:2019-latest
+          envFrom:
+          - configMapRef:
+              name: db-sqlserver-configmap
+          ports:
+            - containerPort: 1433
+          volumeMounts:
+            - name: db-sqlserver-volume
+              mountPath: /var/opt/mssql
+      volumes:
+        - name: db-sqlserver-volume
+          persistentVolumeClaim:
+            claimName: db-sqlserver-claim
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: db-sqlserver-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 8Gi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-sqlserver-service
+spec:
+  type: NodePort
+  selector:
+    db: sqlserver
+  ports:
+    - port: 1433
+      nodePort: 30003
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-sqlserver-configmap
+  namespace: default
+data:
+  ACCEPT_EULA: "Y"
+  MSSQL_SA_PASSWORD: "blogmaster123"
