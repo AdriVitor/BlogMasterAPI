@@ -8,9 +8,9 @@ namespace BlogMaster_Infraestructure.Repositories
     public class CacheRepository : ICacheRepository
     {
         private readonly IDatabase _database;
-        public CacheRepository()
+        public CacheRepository(CacheAccessConfig cacheAccessConfig)
         {
-            _database = CacheAccessConfig.Connection.GetDatabase();
+            _database = cacheAccessConfig.Connection.GetDatabase();
         }
 
         public T Get<T>(string key)
@@ -53,7 +53,7 @@ namespace BlogMaster_Infraestructure.Repositories
         public void Set<T>(string key, T value)
         {
             var valueSerialize = JsonConvert.SerializeObject(value);
-            _database.StringSet(key, valueSerialize);
+            _database.StringSet(key, valueSerialize, TimeSpan.FromMinutes(60));
         }
     }
 }
