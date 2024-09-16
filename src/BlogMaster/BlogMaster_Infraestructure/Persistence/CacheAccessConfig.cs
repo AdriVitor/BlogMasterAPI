@@ -1,15 +1,23 @@
-﻿using StackExchange.Redis;
+﻿using Microsoft.Extensions.Configuration;
+using StackExchange.Redis;
 
 namespace BlogMaster_Infraestructure.Persistence
 {
     public class CacheAccessConfig
     {
-        private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+        private readonly IConfiguration _configuration;
+        private readonly string _redisConnection;
+        private Lazy<ConnectionMultiplexer> lazyConnection;
+        public CacheAccessConfig(IConfiguration configuration)
         {
-            string redisConnection = "localhost:6379";
-            return ConnectionMultiplexer.Connect(redisConnection);
-        });
+            _configuration = configuration;
+            _redisConnection = _configuration["ConnectionStrings:Redis"];
+            lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+            {
+                return ConnectionMultiplexer.Connect(_redisConnection);
+            });
+        }
 
-        public static ConnectionMultiplexer Connection => lazyConnection.Value;
+        public ConnectionMultiplexer Connection => lazyConnection.Value;
     }
 }
