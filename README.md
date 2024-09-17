@@ -3,13 +3,6 @@
 ## Objetivo
 <p>Criar uma API com todas as funcionalidades de um blog</p>
 
-## Como rodar a aplicação?
-<ol>
-  <li>Clonar esse repositório</li>
-  <li>Rodar o script SQL para a criação do banco de dados</li>
-  <li>Criar um container Redis na porta 6379</li>
-</ol>
-
 ## Funcionalidades
 <ul>
   <li>Autenticação</li>
